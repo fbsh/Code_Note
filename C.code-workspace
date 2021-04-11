@@ -1,13 +1,16 @@
 {
 	"folders": [
 		{
-			"path": "征服C指针_第1版"
-		},
-		{
+			"name": "Understanding and Using C Pointers 1st Edition",
 			"path": "Understanding and Using C Pointers 1st Edition"
 		},
 		{
+			"name": "Pointers on C 1st Edition",
 			"path": "Pointers on C 1st Edition"
+		},
+		{
+			"name": "征服C指针_第1版",
+			"path": "征服C指针_第1版"
 		}
 	]
 }

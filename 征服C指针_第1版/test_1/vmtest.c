@@ -5,7 +5,7 @@ int main(void)
     int hoge;
     char buf[256];
 
-    printf("&hoge...%p\n", hoge);
+    printf("&hoge...%p\n", &hoge);
 
     printf("Input initial value.\n");
     fgets(buf, sizeof(buf), stdin);

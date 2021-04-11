@@ -3,7 +3,6 @@
 void hello(void)
 {
     fprintf(stderr, "Hello\n");
-
 }
 
 void func(void)

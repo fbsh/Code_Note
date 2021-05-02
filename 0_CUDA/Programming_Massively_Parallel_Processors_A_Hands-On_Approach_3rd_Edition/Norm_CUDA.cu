@@ -7,12 +7,12 @@
 #include <time.h>
 #include <sys/time.h>
 #include <math.h>
-#define CHECK_ERR(x)                                    \
-if (x != cudaSuccess) {                               \
-fprintf(stderr,"%s in %s at line %d\n",             \
+#define CHECK_ERR(x)                            \
+if (x != cudaSuccess) {                         \
+fprintf(stderr,"%s in %s at line %d\n",         \
 cudaGetErrorString(err),__FILE__,__LINE__);     \
-exit(-1);                                               \
-}                                                     \
+exit(-1);                                       \
+}                                               \
 
 
 /* Program Parameters */
@@ -82,11 +82,7 @@ void matrixNorm() {
     //kernal function here
     vecAdd<<<ceil(N/256.0), 256>>>(d_A,d_B,N);
 
-
     err = cudaMemcpy((void*)B, d_B, sizeof(float)*N*N, cudaMemcpyDeviceToHost);
-
-
-
     printf("Computing Serially.\n");
 
 }
@@ -112,8 +108,6 @@ void print_inputs() {
         }
     }
 }
-
-
 
 int main(int argc, char **argv) {
     /* Timing variables */

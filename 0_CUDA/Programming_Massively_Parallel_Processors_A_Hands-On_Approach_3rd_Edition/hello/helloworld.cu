@@ -5,7 +5,7 @@ __global__ void hello() {
 }
 
 int main() {
-    hello<<<1, 1>>>();
+    hello<<<1, 10>>>();
     printf("Hello world from host\n");
     cudaDeviceSynchronize();
     return 0;

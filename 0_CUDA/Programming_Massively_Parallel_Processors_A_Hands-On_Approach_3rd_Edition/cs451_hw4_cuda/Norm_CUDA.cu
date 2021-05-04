@@ -170,17 +170,18 @@ void matrixNorm() {
     float *d_A, *d_B, *mean_vec, *sigma_vec, *tmp;
     err = cudaMalloc((void **) &d_A, sizeof(float)*N*N);
        CHECK_ERR(err);
+
     err = cudaMalloc((void **) &d_B, sizeof(float)*N*N);
        CHECK_ERR(err);
+
     err = cudaMalloc((void **) &tmp, sizeof(float)*N*N);
        CHECK_ERR(err);
 
     err = cudaMalloc((void **) &mean_vec, sizeof(float) * N);
        CHECK_ERR(err);
-
+       
     err = cudaMalloc((void **) &sigma_vec, sizeof(float) * N);
        CHECK_ERR(err);
-
 
     err = cudaMemcpy(d_A, (void*)A , sizeof(float)*N*N, cudaMemcpyHostToDevice);
         CHECK_ERR(err);

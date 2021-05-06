@@ -1,7 +1,7 @@
-#include <mpi.h>
+#include <mpich/mpi.h>
 #include <stdio.h>
 
-main (int argc, char *argv[])
+int main (int argc, char *argv[])
 {
     int npes, myrank;
     MPI_Init(&argc, &argv);
@@ -9,4 +9,5 @@ main (int argc, char *argv[])
     MPI_Comm_rank (MPI_COMM_WORLD, &myrank);
     printf ("From process %d out of %d, Hello World!\n", myrank, npes);
     MPI_Finalize();
+    return 0;
 }

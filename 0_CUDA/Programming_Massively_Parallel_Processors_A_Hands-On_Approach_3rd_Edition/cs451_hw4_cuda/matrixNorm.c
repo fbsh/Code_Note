@@ -2,17 +2,36 @@
  * Compile with "gcc matrixNorm.c"
  */
 
+
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <sys/time.h>
+#include <unistd.h>
 #include <math.h>
+#include <sys/types.h>
+#include <sys/times.h>
+#include <sys/time.h>
+#include <time.h>
 
 /* Program Parameters */
-#define N 6000  /* Matrix size */
+#define MAXN 6000  /* Max value of N */
+int N;          /* Matrix size */
 
 /* Matrices */
-volatile float A[N][N], B[N][N];
+volatile float A[MAXN][MAXN], B[MAXN][MAXN];
+
+/* Prototype */
+void matrixNorm();
+/* returns a seed for srand based on the time */
+unsigned int time_seed() {
+	struct timeval t;
+	struct timezone tzdummy;
+
+	gettimeofday(&t, &tzdummy);
+	return (unsigned int)(t.tv_usec);
+}
 
 
 /* Initialize A and B*/
@@ -26,7 +45,32 @@ void initialize_inputs() {
             B[row][col] = 0.0;
         }
     }
-    
+}
+/* Print input matrices */
+void print_inputs() {
+	int row, col;
+
+	if (N < 10) {
+		printf("\nA =\n\t");
+		for (row = 0; row < N; row++) {
+			for (col = 0; col < N; col++) {
+				printf("%5.2f%s", A[row][col], (col < N-1) ? ", " : ";\n\t");
+			}
+		}
+	}
+}
+
+void print_B() {
+	int row, col;
+
+	if (N < 10) {
+		printf("\nB =\n\t");
+		for (row = 0; row < N; row++) {
+			for (col = 0; col < N; col++) {
+				printf("%1.10f%s", B[row][col], (col < N-1) ? ", " : ";\n\t");
+			}
+		}
+	}
 }
 
 
@@ -44,7 +88,6 @@ void matrixNorm() {
         for (row=0; row < N; row++)
             mu += A[row][col];
         mu /= (float) N;
-        
         // kernel 3
         sigma = 0.0;
         for (row=0; row < N; row++)
@@ -52,7 +95,6 @@ void matrixNorm() {
             sigma += powf(A[row][col] - mu, 2.0);
         sigma /= (float) N;
         sigma = sqrt(sigma);
-
         // kernel 4
         for (row=0; row < N; row++) {
             if (sigma == 0.0)
@@ -63,8 +105,6 @@ void matrixNorm() {
     }
     
 }
-
-
 
 int main(int argc, char **argv) {
     /* Timing variables */

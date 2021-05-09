@@ -65,6 +65,7 @@ void initialize_inputs()   {
 
 }
 
+/* colSum */
 __global__ void colSum(float* input_mat, float* sum_vec, int n, int col)
 {
     extern __shared__ int sdata[];
@@ -91,6 +92,7 @@ __global__ void colSum(float* input_mat, float* sum_vec, int n, int col)
     }
 }
 
+/* vecDiv */
 __global__ void vecDiv(float* input_vec, int n, float x)
 {
     //i 每一个线程的id
@@ -102,6 +104,7 @@ __global__ void vecDiv(float* input_vec, int n, float x)
     }
 }
 
+/* vecSqrt */
 __global__ void vecSqrt(float* input_vec, int n)
 {
     int i = blockDim.x * blockIdx.x + threadIdx.x;
@@ -110,6 +113,8 @@ __global__ void vecSqrt(float* input_vec, int n)
         input_vec[i] = sqrt(input_vec[i]);
     }
 }
+
+/* getSquareError */
 __global__ void getSquareError(float* input_mat, float* output_mat, float* mean_vec, int n)
 {
     int col = blockDim.x * blockIdx.x + threadIdx.x;
@@ -121,6 +126,7 @@ __global__ void getSquareError(float* input_mat, float* output_mat, float* mean_
     }
 }
 
+/* getZScore */
 __global__ void getZScore(float* input_mat, float* output_mat, float* mean_vec, float* sigma_vec, int n)
 {
     int col = blockDim.x * blockIdx.x + threadIdx.x;
@@ -138,6 +144,7 @@ __global__ void getZScore(float* input_mat, float* output_mat, float* mean_vec, 
     }
 }
 
+/* getColMean */
 void getColMean (float* d_A, float* mean_vec, int N)
 {
     for (int col = 0; col < N; ++col)
@@ -167,25 +174,24 @@ void matrixNorm() {
 
     cudaError_t err;
     //start from here:
-    float *d_A, *d_B, *mean_vec, *sigma_vec, *tmp;
+    float *d_A;
+    float *d_B; 
+    float *mean_vec; 
+    float *sigma_vec; 
+    float *tmp;
+
     err = cudaMalloc((void **) &d_A, sizeof(float)*N*N);
        CHECK_ERR(err);
-
     err = cudaMalloc((void **) &d_B, sizeof(float)*N*N);
        CHECK_ERR(err);
-
     err = cudaMalloc((void **) &tmp, sizeof(float)*N*N);
        CHECK_ERR(err);
-
     err = cudaMalloc((void **) &mean_vec, sizeof(float) * N);
        CHECK_ERR(err);
-       
     err = cudaMalloc((void **) &sigma_vec, sizeof(float) * N);
        CHECK_ERR(err);
-
     err = cudaMemcpy(d_A, (void*)A , sizeof(float)*N*N, cudaMemcpyHostToDevice);
         CHECK_ERR(err);
-
     //kernal function here
 
     //share memory allocating
@@ -196,7 +202,6 @@ void matrixNorm() {
     }
     getColMean(tmp, sigma_vec, N);
     {
-
         int blockDim = ceil((float)N / 256.0);
         vecSqrt<<<blockDim, 256>>>(sigma_vec, N);
     }
@@ -204,10 +209,15 @@ void matrixNorm() {
         int blockDim = ceil((float)N / 16.0);
         getZScore<<<{blockDim, blockDim}, {16, 16}>>>(d_A, d_B, mean_vec, sigma_vec, N);
     }
-
     err = cudaMemcpy((void*)B, d_B, sizeof(float)*N*N, cudaMemcpyDeviceToHost);
     printf("Computing Serially.\n");
 
+    //free all pointers
+    cudaFree(d_A);
+    cudaFree(d_B);
+    cudaFree(*mean_vec);
+    cudaFree(*sigma_vec);
+    cudaFree(*tmp);
 }
 
 void print_inputs() {
@@ -226,8 +236,6 @@ void print_inputs() {
             for (col = 0; col < N; col++) {
                 printf("%5.2f%s", B[row][col], (col < N-1) ? ", " : ";\n\t");
             }
-
-
         }
     }
 }

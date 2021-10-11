@@ -13,3 +13,21 @@ INFO: Unsupported notification method: $/setTrace
 Sep 15, 2021 3:11:30 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
 [0m2021.09.15 15:11:30 INFO  shutting down Metals[0m
+[0m2021.09.30 20:08:30 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note' for client Visual Studio Code - Insiders 1.61.0-insider.[0m
+[0m2021.09.30 20:08:32 INFO  time: initialize in 1.78s[0m
+[0m2021.09.30 20:08:33 WARN  Build server is not auto-connectable.[0m
+[0m2021.09.30 20:08:33 WARN  no build tool detected in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.01 16:53:17 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note' for client Visual Studio Code - Insiders 1.61.0-insider.[0m
+[0m2021.10.01 16:53:23 INFO  time: initialize in 5.96s[0m
+[0m2021.10.01 16:53:28 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.01 16:53:28 WARN  no build tool detected in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.01 17:01:45 INFO  shutting down Metals[0m
+[0m2021.10.10 09:52:06 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note' for client Visual Studio Code - Insiders 1.61.0-insider.[0m
+[0m2021.10.10 09:52:08 INFO  time: initialize in 2.03s[0m
+[0m2021.10.10 09:52:08 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.10 09:52:08 WARN  no build tool detected in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.11 12:48:31 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note' for client Visual Studio Code - Insiders 1.61.0-insider.[0m
+[0m2021.10.11 12:48:32 INFO  time: initialize in 1.38s[0m
+[0m2021.10.11 12:48:37 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.11 12:48:37 WARN  no build tool detected in workspace 'C:\Users\bfeng\Documents\GitHub\Code_Note'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.11 12:51:30 INFO  shutting down Metals[0m

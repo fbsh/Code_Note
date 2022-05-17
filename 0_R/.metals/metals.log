@@ -1,0 +1,14 @@
+[0m2021.10.14 07:52:19 INFO  Started: Metals version 0.10.7 in workspace '/home/fbsh/Documents/Github/Code_Note/0_R' for client Visual Studio Code - Insiders 1.62.0-insider.[0m
+[0m2021.10.14 07:52:23 INFO  time: initialize in 4.18s[0m
+[0m2021.10.14 07:52:25 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.14 07:52:25 WARN  no build tool detected in workspace '/home/fbsh/Documents/Github/Code_Note/0_R'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.15 00:47:20 INFO  shutting down Metals[0m
+[0m2021.10.19 23:54:25 INFO  Started: Metals version 0.10.7 in workspace '/home/fbsh/Documents/Github/Code_Note/0_R' for client Visual Studio Code - Insiders 1.62.0-insider.[0m
+[0m2021.10.19 23:54:28 INFO  time: initialize in 3.05s[0m
+[0m2021.10.19 23:54:29 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.19 23:54:29 WARN  no build tool detected in workspace '/home/fbsh/Documents/Github/Code_Note/0_R'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+[0m2021.10.19 23:55:10 INFO  shutting down Metals[0m
+[0m2021.10.19 23:58:04 INFO  Started: Metals version 0.10.7 in workspace '/home/fbsh/Documents/Github/Code_Note/0_R' for client Visual Studio Code - Insiders 1.62.0-insider.[0m
+[0m2021.10.19 23:58:07 INFO  time: initialize in 2.37s[0m
+[0m2021.10.19 23:58:08 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.19 23:58:08 WARN  no build tool detected in workspace '/home/fbsh/Documents/Github/Code_Note/0_R'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
